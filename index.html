@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Jude moon">
+    <title>Visualización de datos del Titanic</title>
+
+   
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+
+   
+    <style>
+        h1 {
+            background-color: darkblue;
+            color: floralwhite;
+            font-family: Helvetica, sans-serif;
+            width: 100%;
+            height: 80px;
+            text-align: center;
+            padding-top: 30px;
+        }
+        h2 {
+            font-size: 1.4em;
+            text-transform: uppercase;
+            font-family: Helvetica;
+            color: #000;
+            margin-top: 0;
+        }
+        h3 {
+            font-family: Helvetica, sans-serif;
+            text-align: center;
+        }
+        h4 {
+            font-family: Helvetica, sans-serif;
+            text-align: left;
+        }
+        div.text {
+            font-family: Helvetica;
+            padding: 5px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="main-title">50 Startups de EEUU </h1>
+    <h4 class="main-autor">Nombre: Adrian Howard</h3>
+    <h4 class="main-url">Url: <a href="https://js-ahv-50startups-rsmgdu.stackblitz.io/">https://js-ahv-50startups-rsmgdu.stackblitz.io/</a></h3>
+    <h4 class="main-fuente">Fuente: <a href="https://www.kaggle.com/farhanmd29/50-startups">https://www.kaggle.com/farhanmd29/50-startups</a></h3>
+    <h4 class="main-fecha">Fecha: 07/03/2022</h4>
+    <br>
+    <br>
+
+    
+    <div class="summary">
+        <h2 class="text-title">Descripción del proyecto</h2>
+        <div class="text">
+Analizamos los datos de 50 Startups de Estados Unidos, el objetivo es descubrir cuales han sido las claves del éxito de aquellas Startups que más rentables han sido. Nuestro dataset contiene información sobre la cantidad de dinero invertido en los diferentes departamentos asi como la cantidad de dinero que han ganado.
+<br>
+<br>
+
+
+            <div class="metadato  " >
+              La audiencia es al público en general, concretamente al sector de inversión tanto fondos de inversión como personas que están pensando en crear una empresa.
+              
+
+            </div>
+
+
+            </br>
+            </br>
+            En la siguiente tabla se muestra un resumen de los datos utilizados durante este estudio exploratorio. Concretamente podemos ver que el data set empleado contiene información del dinero invertido en I+D (R.D.), Administración y Marketin, tambien contiene la información del estado donde se encuentra la empresa y sus ganancias. Finalmente, observamos las columnas Total_spent, (dinero total gastado) la suma de las tres primeras columnas, "ratio profit spent" es el ratio de ganancias en base a la inversion (profits/total_spent) y finalmente, budget (inversión de la empresa de forma categorica) que se divide en tres tipos: low por debajo de 300.000, medium de 300.001 a 500.000 y high por encima de 500.000.
+            </br>
+        <a href="https://ibb.co/yyYV6nY"><img src="https://i.ibb.co/yyYV6nY/Summary-07-MBIG-50-Start-Ups.png" alt="Summary-07-MBIG-50-Start-Ups" border="0"></a>
+    </div>
+
+    
+    <div class="plot">
+        <!-- The first bar chart -->
+        <h2 class="plot-title">Descripción incial de las empresas</h2>
+        <div class="text">
+          En nuestros datos carecemos de ID de las empresas, no obstante, sabemos a que región pertenecen<br>
+          Se han utilizado la herramienta google sheets para mostrar la grafica de barras en la que podemos ver que el número de empresas está repartido de forma equitativa entre estados. En cuanto al nivel de inverión California es el estado con menos inversión mientras que New York es el estado con mayor inversión.
+
+        </div>  
+
+        <div id="plotContainer1">
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSn5YqP4jxroBP1mwPLswa0Aq13vAYjRWt4HwOtVdxkAy5wU7pYqfkl2ONgu3J5C-RsYNFgH_5op6qD/pubchart?oid=64311267&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSn5YqP4jxroBP1mwPLswa0Aq13vAYjRWt4HwOtVdxkAy5wU7pYqfkl2ONgu3J5C-RsYNFgH_5op6qD/pubchart?oid=64311267&format=image" alt="Stacked" border="0"></a>
+        </div>
+        
+
+
+
+
+        <h2 class="plot-title"> Comparativa entre grupos </h2>
+        <div class="text">
+          En esta representacion queremos estudiar diferencias entre estados y nivel de inversión en base a los atributos estudiados, para ello, utilizaremos diagramas de cajas usando R <br> <br>
+
+          En la primera gráfica presentamos el diagrama de cajas de las diferentes variables por estados en donde no se observa ninguna diferencia entre estados. 
+        </div> 
+
+        <div id="plotContainer3">
+        <a href="https://ibb.co/txx3DGs"><img src="https://i.ibb.co/7RRbKfW/Boxplot-50-Start-Ups.jpg" alt="Boxplot-50-Start-Ups" border="0"></a>
+        </div>
+        
+        
+        </br>
+        </br>
+
+        <div class="text">
+           
+            La siguiente gráfica presenta los mismos datos comparando el nivel de inversión de cada empresa. En donde vemos diferencias significativas entre las empresas con mayor inversión en comparación con las empresas con menor inversión. En concreto, observamos que no existe diferencias significativas en cuanto al gasto total en la administración y las empresas con una menor inversión total tienen el mayor ratio de ganancias por dinero invertido.
+          </div> 
+          <a href="https://ibb.co/9wRXrLt"><img src="https://i.ibb.co/TKzXgSL/Boxplot-50-Start-Ups-bugdet.jpg" alt="Boxplot-50-Start-Ups-bugdet" border="0"></a>
+
+        <h2 class="plot-title">Relación con las ganancias</h2>
+        <div id="plotContainer4">
+          <div class="text">
+              Finalmente tratamos de estudiar variables que esten relacionadas con el nivel de ganancias de las empresas. Para ello, realizamos una gráfica de correlación con R con el spearman correlation, en donde vemos que las varibles más correlacionadas con el nivel de ganancais son inversión en I+D y en marketing.
+               
+          </div>
+<br>
+<a href="https://ibb.co/H7G1ph7"><img src="https://i.ibb.co/VVMrpwV/Corplot-50-Start-Ups.jpg" alt="Corplot-50-Start-Ups" border="0"></a>
+ <br />
+ <div class="text">
+    Para estudiar la relacion entre las variables correlacionadas vamos a hacer un gráfico de dispersión iteractivas con R por nivel de inversión.
+     
+</div>
+
+            
+        </div>
+    </div>
+
+
+
+        </br>
+        </br>
+        </br>
+    </div>
+
+    
+</body>
+</html>
